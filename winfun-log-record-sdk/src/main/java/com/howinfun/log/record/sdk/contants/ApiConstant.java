@@ -6,7 +6,7 @@ package com.howinfun.log.record.sdk.contants;
  * @author winfun
  * @date 2020/10/30 3:50 下午
  **/
-public interface ApiContants {
+public interface ApiConstant {
 
     /**
      * 成功

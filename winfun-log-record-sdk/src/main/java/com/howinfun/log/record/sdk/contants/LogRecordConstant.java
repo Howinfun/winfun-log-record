@@ -6,7 +6,7 @@ package com.howinfun.log.record.sdk.contants;
  * @author winfun
  * @date 2020/11/3 4:34 下午
  **/
-public interface LogRecordContants {
+public interface LogRecordConstant {
 
     /**
      * 错误信息正则

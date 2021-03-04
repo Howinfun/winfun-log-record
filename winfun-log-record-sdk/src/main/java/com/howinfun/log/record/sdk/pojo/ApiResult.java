@@ -1,6 +1,6 @@
 package com.howinfun.log.record.sdk.pojo;
 
-import com.howinfun.log.record.sdk.contants.ApiContants;
+import com.howinfun.log.record.sdk.contants.ApiConstant;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +20,7 @@ public class ApiResult<T> implements Serializable {
     /**
      * code：0成功 1失败
      */
-    private Integer code = ApiContants.SUCCESS;
+    private Integer code = ApiConstant.SUCCESS;
     /**
      * 返回信息
      */
@@ -95,11 +95,11 @@ public class ApiResult<T> implements Serializable {
      * @return
      */
     public static ApiResult fail(Object data){
-        return fail(ApiContants.FAIL,"fail",data);
+        return fail(ApiConstant.FAIL, "fail", data);
     }
 
     public static ApiResult fail(String message){
-        return fail(ApiContants.FAIL,message,null);
+        return fail(ApiConstant.FAIL, message, null);
     }
 
     /**

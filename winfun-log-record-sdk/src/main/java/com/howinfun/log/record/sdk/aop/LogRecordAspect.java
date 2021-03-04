@@ -2,7 +2,7 @@ package com.howinfun.log.record.sdk.aop;
 
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.howinfun.log.record.sdk.contants.LogRecordContants;
+import com.howinfun.log.record.sdk.contants.LogRecordConstant;
 import com.howinfun.log.record.sdk.entity.LogRecord;
 import com.howinfun.log.record.sdk.service.LogRecordSDKService;
 import lombok.extern.slf4j.Slf4j;
@@ -66,7 +66,7 @@ public class LogRecordAspect {
         logRecord.setOperator(operator);
         Object proceedResult = null;
         // 记录实体记录
-        if (LogRecordContants.LOG_TYPE_RECORD.equals(logType)){
+        if (LogRecordConstant.LOG_TYPE_RECORD.equals(logType)){
             final Class mapperClass = logRecordAnno.mapperName();
             if (mapperClass.isAssignableFrom(BaseMapper.class)){
                 throw new RuntimeException("mapperClass 属性传入 Class 不是 BaseMapper 的子类");
@@ -78,14 +78,14 @@ public class LogRecordAspect {
             final Object afterRecord;
             switch (sqlType){
                 // 新增
-                case LogRecordContants.SQL_TYPE_INSERT:
+                case LogRecordConstant.SQL_TYPE_INSERT:
                     proceedResult = point.proceed();
                     final Object result = mapper.selectById(id);
                     logRecord.setBeforeRecord("");
                     logRecord.setAfterRecord(JSON.toJSONString(result));
                     break;
                 // 更新
-                case LogRecordContants.SQL_TYPE_UPDATE:
+                case LogRecordConstant.SQL_TYPE_UPDATE:
                     beforeRecord = mapper.selectById(id);
                     proceedResult = point.proceed();
                     afterRecord = mapper.selectById(id);
@@ -93,7 +93,7 @@ public class LogRecordAspect {
                     logRecord.setAfterRecord(JSON.toJSONString(afterRecord));
                     break;
                 // 删除
-                case LogRecordContants.SQL_TYPE_DELETE:
+                case LogRecordConstant.SQL_TYPE_DELETE:
                     beforeRecord = mapper.selectById(id);
                     proceedResult = point.proceed();
                     logRecord.setBeforeRecord(JSON.toJSONString(beforeRecord));
@@ -103,7 +103,7 @@ public class LogRecordAspect {
                     break;
             }
         // 记录信息
-        }else if (LogRecordContants.LOG_TYPE_MESSAGE.equals(logType)){
+        }else if (LogRecordConstant.LOG_TYPE_MESSAGE.equals(logType)){
             try {
                 proceedResult = point.proceed();
                 String successMsg = logRecordAnno.successMsg();
@@ -120,7 +120,7 @@ public class LogRecordAspect {
             }catch (final Exception e){
                 String errorMsg = logRecordAnno.errorMsg();
                 final String exceptionMsg = e.getMessage();
-                errorMsg = errorMsg.replace(LogRecordContants.ERROR_MSG_PATTERN,exceptionMsg);
+                errorMsg = errorMsg.replace(LogRecordConstant.ERROR_MSG_PATTERN, exceptionMsg);
                 logRecord.setSuccessMsg(errorMsg);
                 // 插入记录
                 logRecord.setCreateTime(LocalDateTime.now());

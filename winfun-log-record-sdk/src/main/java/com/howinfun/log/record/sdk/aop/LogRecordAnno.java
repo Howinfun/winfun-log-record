@@ -1,7 +1,7 @@
 package com.howinfun.log.record.sdk.aop;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.howinfun.log.record.sdk.contants.LogRecordContants;
+import com.howinfun.log.record.sdk.contants.LogRecordConstant;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -24,12 +24,12 @@ public @interface LogRecordAnno {
      * 操作日志类型
      * @return
      */
-    String logType() default LogRecordContants.LOG_TYPE_MESSAGE;
+    String logType() default LogRecordConstant.LOG_TYPE_MESSAGE;
 
     /**
      * sql类型：增删改
      */
-    String sqlType() default LogRecordContants.SQL_TYPE_INSERT;
+    String sqlType() default LogRecordConstant.SQL_TYPE_INSERT;
 
     /**
      * 业务名称
