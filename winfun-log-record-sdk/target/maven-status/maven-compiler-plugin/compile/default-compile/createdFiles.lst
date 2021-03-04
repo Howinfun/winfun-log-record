@@ -14,15 +14,12 @@ com/howinfun/log/record/sdk/utils/http/HttpLoggingInterceptor.class
 com/howinfun/log/record/sdk/contants/ApiContants.class
 com/howinfun/log/record/sdk/contants/LogRecordContants.class
 com/howinfun/log/record/sdk/utils/http/OkHttpClientUtils$1.class
-com/howinfun/log/record/sdk/entity/enums/SqlTypeEnum.class
 com/howinfun/log/record/sdk/utils/FastThreadLocalContext$1.class
-com/howinfun/log/record/sdk/aop/LogRecordAspect$1.class
 com/howinfun/log/record/sdk/utils/http/OkHttpClientUtils.class
 com/howinfun/log/record/sdk/utils/json/JsonUtil.class
 com/howinfun/log/record/sdk/utils/http/HttpLoggingInterceptor$Logger.class
 com/howinfun/log/record/sdk/config/RestTemplateConfiguration.class
 com/howinfun/log/record/sdk/utils/json/LocalDateTimeSerializer.class
 com/howinfun/log/record/sdk/service/impl/LogRecordSDKServiceImpl.class
-com/howinfun/log/record/sdk/entity/enums/LogTypeEnum.class
 com/howinfun/log/record/sdk/utils/json/JsonUtil$1.class
 com/howinfun/log/record/sdk/service/LogRecordSDKService.class

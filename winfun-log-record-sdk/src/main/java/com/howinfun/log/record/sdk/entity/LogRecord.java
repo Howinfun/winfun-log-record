@@ -3,8 +3,6 @@ package com.howinfun.log.record.sdk.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.howinfun.log.record.sdk.entity.enums.LogTypeEnum;
-import com.howinfun.log.record.sdk.entity.enums.SqlTypeEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -33,11 +31,11 @@ public class LogRecord implements Serializable {
     /**
      * 操作日志类型：message ｜ record
      */
-    private LogTypeEnum logType;
+    private String logType;
     /**
-     * SQL类型：1增2改3删
+     * SQL类型：增insert、改update、删delete、查query
      */
-    private SqlTypeEnum sqlType;
+    private String sqlType;
     /**
      * 方法执行前数据库记录内容
      */

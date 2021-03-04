@@ -1,9 +1,7 @@
 package com.howinfun.log.record.sdk.aop;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.howinfun.log.record.sdk.entity.enums.LogTypeEnum;
-import com.howinfun.log.record.sdk.entity.enums.SqlTypeEnum;
-
+import com.howinfun.log.record.sdk.contants.LogRecordContants;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -26,7 +24,7 @@ public @interface LogRecordAnno {
      * 操作日志类型
      * @return
      */
-    LogTypeEnum logType() default LogTypeEnum.MESSAGE;
+    String logType() default LogRecordContants.LOG_TYPE_MESSAGE;
 
     /**
      * 业务名称
@@ -48,7 +46,7 @@ public @interface LogRecordAnno {
     /**
      * sql类型：增删改
      */
-    SqlTypeEnum sqlType() default SqlTypeEnum.INSERT;
+    String sqlType() default LogRecordContants.SQL_TYPE_INSERT;
 
     /**
      * 操作者
