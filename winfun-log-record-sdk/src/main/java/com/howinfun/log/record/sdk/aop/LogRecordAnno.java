@@ -27,10 +27,16 @@ public @interface LogRecordAnno {
     String logType() default LogRecordContants.LOG_TYPE_MESSAGE;
 
     /**
+     * sql类型：增删改
+     */
+    String sqlType() default LogRecordContants.SQL_TYPE_INSERT;
+
+    /**
      * 业务名称
      * @return
      */
     String businessName() default "";
+
     /**
      * 日志类型一：记录记录实体
      * Mapper Class，需要配合 MybatisPlus 使用
@@ -42,11 +48,6 @@ public @interface LogRecordAnno {
      * 主键
      */
     String id() default "";
-
-    /**
-     * sql类型：增删改
-     */
-    String sqlType() default LogRecordContants.SQL_TYPE_INSERT;
 
     /**
      * 操作者
