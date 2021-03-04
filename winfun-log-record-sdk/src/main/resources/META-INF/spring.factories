@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.howinfun.log.record.sdk.config.LogRecordConfiguration,\
+  com.howinfun.log.record.sdk.config.AsyncTaskThreadExecutorConfig,\
+  com.howinfun.log.record.sdk.config.RestTemplateConfiguration
